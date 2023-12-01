@@ -2,7 +2,7 @@
 set -e
 
 ARCH=aarch64
-DOCKER_VERSION=20.10.9
+DOCKER_VERSION=24.0.7
 DOCKER_DIR=/volume1/@docker
 
 echo "Downloading docker $DOCKER_VERSION-$ARCH"
@@ -53,16 +53,16 @@ echo "Creating docker group"
 synogroup --add docker root
 
 echo "Installing docker compose"
-curl -L --fail https://raw.githubusercontent.com/nkoziel/NAS-Synology/main/run.sh -o /usr/local/bin/docker-compose
+curl -L --fail https://raw.githubusercontent.com/g0spel/NAS-docker/main/run.sh -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
 echo "Creating portainer working directory"
 mkdir -p "$DOCKER_DIR"/portainer
-curl -L --fail https://raw.githubusercontent.com/nkoziel/NAS-Synology/main/portainer/docker-compose.yml -o "$DOCKER_DIR"/portainer/docker-compose.yml
+curl -L --fail https://raw.githubusercontent.com/g0spel/NAS-docker/main/portainer/docker-compose.yml -o "$DOCKER_DIR"/portainer/docker-compose.yml
 
-echo "Creating pihole working directory"
-mkdir -p "$DOCKER_DIR"/pihole
-curl -L --fail https://raw.githubusercontent.com/nkoziel/NAS-Synology/main/pihole/docker-compose.yml -o "$DOCKER_DIR"/pihole/docker-compose.yml
+#echo "Creating pihole working directory"
+#mkdir -p "$DOCKER_DIR"/pihole
+#curl -L --fail https://raw.githubusercontent.com/g0spel/NAS-docker/main/pihole/docker-compose.yml -o "$DOCKER_DIR"/pihole/docker-compose.yml
 
 echo "Starting docker"
 /usr/local/etc/rc.d/docker.sh start
