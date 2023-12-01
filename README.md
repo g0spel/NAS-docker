@@ -38,7 +38,7 @@ Expected outcome :
 
 ### Installation of docker and configuration ###
 
-``` curl https://raw.githubusercontent.com/nkoziel/NAS-Synology/main/get-docker.sh | sh ```
+``` curl https://raw.githubusercontent.com/g0spel/NAS-docker/main/get-docker.sh | sh ```
 
 If all goes well you should see the message:
 
